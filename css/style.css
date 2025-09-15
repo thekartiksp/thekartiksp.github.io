@@ -1274,10 +1274,14 @@ footer .credits a {
 
 
 
-/* --- CORRECTED Portfolio Carousel Styles --- */
 /* ===================================================================
 //--//--> FINAL PORTFOLIO CAROUSEL STYLES
 =================================================================== */
+
+/* ADD THIS NEW RULE */
+.col-md-4 {
+  min-width: 0;
+}
 
 /* This is the main container for the carousel inside the portfolio grid */
 .work-box.portfolio-carousel-wrapper {
@@ -1310,7 +1314,7 @@ footer .credits a {
 .carousel-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* This is the fix for the proportion issue. It makes the image fill the space without distortion. */
+  object-fit: cover; /* This makes the image cover the area without distortion. */
   display: block;
 }
 
