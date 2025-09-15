@@ -1273,29 +1273,28 @@ footer .credits a {
 
 
 
-/* --- Portfolio Carousel Styles --- */
-.portfolio-carousel-wrapper .work-img {
-  padding: 0;
-  margin: 0;
-  height: 100%; /* Ensure wrapper has height */
+
+/* --- CORRECTED Portfolio Carousel Styles --- */
+.work-box.portfolio-carousel-wrapper {
+  padding: 0; /* Remove default padding from work-box */
 }
 
 .portfolio-carousel {
   position: relative;
   width: 100%;
-  height: 200px; /* Adjust height as needed */
-  overflow: hidden;
-  margin-bottom: -5px; /* Aligns with the content box */
+  height: 200px; /* Adjust this height if you want taller/shorter images */
+  overflow: hidden; /* This is crucial - it hides the non-active slides */
 }
 
 .carousel-track {
-  display: flex;
+  display: flex; /* This forces images into a row */
+  flex-direction: row; /* Explicitly set direction */
   height: 100%;
   transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slide {
-  min-width: 100%;
+  min-width: 100%; /* Each slide takes up the full width of the container */
   height: 100%;
   flex-shrink: 0;
 }
@@ -1303,5 +1302,11 @@ footer .credits a {
 .carousel-slide img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Fills space without stretching */
+  object-fit: cover; /* This makes the image cover the area without distortion */
+  display: block; /* Removes any extra space below the image */
+}
+
+/* Ensure work-content sits below the carousel correctly */
+.portfolio-carousel-wrapper .work-content {
+    width: 100%;
 }
