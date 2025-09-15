@@ -114,4 +114,37 @@
 		}
 	});
 
+
+
+  /*--/ Portfolio Carousel Logic /--*/
+  $('.portfolio-carousel').each(function() {
+    var $carousel = $(this);
+    var $track = $carousel.find('.carousel-track');
+    var $slides = $track.children('.carousel-slide');
+    var slideCount = $slides.length;
+    var currentIndex = 0;
+
+    // Clone slides for seamless looping
+    $slides.each(function() {
+      $track.append($(this).clone());
+    });
+
+    setInterval(function() {
+      currentIndex++;
+      $track.css('transition', 'transform 0.5s ease-in-out');
+      $track.css('transform', 'translateX(' + (-currentIndex * 100) + '%)');
+
+      // Reset to the beginning for seamless loop
+      if (currentIndex >= slideCount) {
+        setTimeout(function() {
+          $track.css('transition', 'none');
+          currentIndex = 0;
+          $track.css('transform', 'translateX(0)');
+        }, 500); // Must match CSS transition duration
+      }
+    }, 3000); // Change slide every 3 seconds
+  });
+
+
+
 })(jQuery);
